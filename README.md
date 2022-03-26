@@ -1,4 +1,4 @@
-### Problemas Encontrados no decorrer da implementação
+### Problemas encontrados no decorrer da implementação
 
 Ao Tentarmos importar lib react-apexcharts (Para Construção de Gráficos) no ambiente next, enfrentamos um problema ao dar um refresh na página. Segue um exemplo do erro
 
