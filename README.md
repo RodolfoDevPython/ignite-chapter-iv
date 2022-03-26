@@ -1,6 +1,6 @@
 ### Problemas encontrados no decorrer da implementação
 
-Ao Tentarmos importar lib react-apexcharts (Para Construção de Gráficos) no ambiente next, enfrentamos um problema ao dar um refresh na página. Segue um exemplo do erro
+Ao importar lib react-apexcharts (Para Construção de Gráficos) no ambiente next, enfrentamos um problema ao dar um refresh na página. Segue um exemplo do erro
 
 ```
 Server Error
@@ -10,7 +10,7 @@ This error happened while generating the page. Any console logs will be displaye
 
 ```
 
-Para resolver isso precisamos que ele seja importado essa lib somente no Client-Side. Mudamos a seguinte importação abaixo:
+Para resolver isso, precisamos que essa lib importada somente no Client-Side. Segue o exemplo do código com a importação incorreta:
 ```jsx
 import Chart from "react-apexcharts";
 ```
