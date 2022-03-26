@@ -10,7 +10,7 @@ This error happened while generating the page. Any console logs will be displaye
 
 ```
 
-Para resolver isso, precisamos que essa lib importada somente no Client-Side. Segue o exemplo do código com a importação incorreta:
+Para resolver isso, precisamos que essa lib seja importada somente no Client-Side. Segue o exemplo do código com a importação incorreta:
 ```jsx
 import Chart from "react-apexcharts";
 ```
