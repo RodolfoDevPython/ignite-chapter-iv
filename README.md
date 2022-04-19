@@ -21,3 +21,17 @@ const Chart = dynamic( () => import("react-apexcharts"), {
     ssr: false
 })  
 ```
+
+### Trabalhando com Controlled components / Uncontrolled components
+
+Controlled components Link(https://pt-br.reactjs.org/docs/forms.html#controlled-components)
+
+Uncontrolled components Link(https://pt-br.reactjs.org/docs/uncontrolled-components.html)
+
+
+### Encaminhamento de Ref
+
+Para fazer um reencaminhamento de Ref Link(https://pt-br.reactjs.org/docs/forwarding-refs.html)
+
+### Criando Formularios de forma Uncontrolled
+Usamos a biblioteca "react-hook-form" Link(https://react-hook-form.com/get-started)
