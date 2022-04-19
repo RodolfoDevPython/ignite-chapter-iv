@@ -9,12 +9,11 @@ export function Input({ name, label, ...rest }: InputPropos) {
     return (
         <FormControl>
 
-            { label && <FormLabel htmlFor="password">Senha</FormLabel> }
+            { label && <FormLabel htmlFor="password">{label}</FormLabel> }
             
             <ChakraInput 
                 id={name}
                 name={name}
-                type="password" 
                 focusBorderColor="pink.500"
                 bgColor="gray.900"
                 variant="filled"
