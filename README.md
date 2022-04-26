@@ -1,3 +1,9 @@
+### Ferramentas usadas no projeto
+
+#### [react-hook-form](https://react-hook-form.com/get-started#Quickstart)
+
+#### [yup](https://react-hook-form.com/get-started#SchemaValidation)
+
 ### Problemas encontrados no decorrer da implementação
 
 Ao importar lib react-apexcharts (Para Construção de Gráficos) no ambiente next, enfrentamos um problema ao dar um refresh na página. Segue um exemplo do erro
