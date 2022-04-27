@@ -46,6 +46,6 @@ Usamos a biblioteca "react-hook-form" Link(https://react-hook-form.com/get-start
 ### Data Fetching e cache Local
 
 
-Ferramentas -> React Query
+Ferramentas -> React Query -> Ele usa uma estratégia de cache chamada stale while revalidate (obsoleto enquanto revalida) e também usa essa estratégia de [Window Focus Refetching](https://react-query.tanstack.com/guides/window-focus-refetching)
 
 Obs: Usaremos o MirageJs para fazer uma api fake
