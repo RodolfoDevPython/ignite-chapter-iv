@@ -4,15 +4,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Input } from "../components/Form/Input"; 
 
-const signInFormSchema = yup.object().shape({
-  email: yup.string().required("E-mail obrigatória ").email("E-mail inválido"),
-  password: yup.string().required("Senha obrigatória")
-})
 
 type SignInFormData = {
   email: string;
   password: string;
 }
+
+const signInFormSchema = yup.object().shape({
+  email: yup.string().required("E-mail obrigatória ").email("E-mail inválido"),
+  password: yup.string().required("Senha obrigatória")
+})
+
 
 export default function SignIn() {
 
