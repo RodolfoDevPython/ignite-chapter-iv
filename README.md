@@ -30,9 +30,9 @@ const Chart = dynamic( () => import("react-apexcharts"), {
 
 ### Trabalhando com Controlled components / Uncontrolled components
 
-Controlled components Link(https://pt-br.reactjs.org/docs/forms.html#controlled-components)
+Controlled components _> Link(https://pt-br.reactjs.org/docs/forms.html#controlled-components)
 
-Uncontrolled components Link(https://pt-br.reactjs.org/docs/uncontrolled-components.html)
+Uncontrolled components -> Link(https://pt-br.reactjs.org/docs/uncontrolled-components.html)
 
 
 ### Encaminhamento de Ref
