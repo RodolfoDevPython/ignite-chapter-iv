@@ -41,3 +41,11 @@ Para fazer um reencaminhamento de Ref Link(https://pt-br.reactjs.org/docs/forwar
 
 ### Criando Formularios de forma Uncontrolled
 Usamos a biblioteca "react-hook-form" Link(https://react-hook-form.com/get-started)
+
+
+### Data Fetching e cache Local
+
+
+Ferramentas -> React Query
+
+Obs: Usaremos o MirageJs para fazer uma api fake
