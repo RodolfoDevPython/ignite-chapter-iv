@@ -48,4 +48,14 @@ Usamos a biblioteca "react-hook-form" Link(https://react-hook-form.com/get-start
 
 Ferramentas -> React Query -> Ele usa uma estratégia de cache chamada stale while revalidate (obsoleto enquanto revalida) e também usa essa estratégia de [Window Focus Refetching](https://react-query.tanstack.com/guides/window-focus-refetching)
 
+
+Por padrão o React Query deixa as nossas querys fica de forma obsoleta(com status stale) essa forma faz com que ele faça uma nova request para obter os dados já que os dados já estão obsoletos e precisar ser atualizados.
+
+As Querys tem os seguintes status
+
+- Fresh
+- Fetching
+- Stale
+- Inactive
+
 Obs: Usaremos o MirageJs para fazer uma api fake
