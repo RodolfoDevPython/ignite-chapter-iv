@@ -2,36 +2,15 @@ import { Box, Button, Checkbox, Flex, Heading, Icon, Spinner, Table, Tbody, Td, 
 import Link from "next/link";
 import { useEffect } from "react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
-import { useQuery  } from 'react-query';
-
 
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { SideBar } from "../../components/SideBar";
+import { useUsers } from "../../servers/hooks/useUsers";
 
 export default function UserList() {
 
-    const { data, isLoading, error, isFetching } = useQuery('users', async () => {
-        const response = await fetch("/api/users");
-        const data = await response.json();
-
-        const users = data.users.map(user => {
-            return {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric'
-                })
-            }
-        })
-
-        return users;
-    },{
-        staleTime: 1000 * 5 //5 segundos
-    });
+    const { data, isLoading, error, isFetching } = useUsers();
 
     const isWideVersion = useBreakpointValue({
         base: false,
