@@ -74,6 +74,34 @@ options -> Existem varias configurações uma delas é staleTime da consulta.
 
 No exemplo abaixo foi usado uma chave composta para guardar uma paginação de usuarios. Isso deve ser feito pq não podemos guarda uma páginação em uma única chave
 
+```jsx
 return useQuery(['users', page], () => getUsers(page), {
     staleTime: 1000 * 5 //5 segundos
 });
+```
+
+#### Usando conceito de Prefetch
+
+imagine uma lista de usuarios e que precisamos deixar um link para uma página que carregue todas as informações e detalhes. Com tudo dando uma experiência melhor para o usuario fazendo com que as informações já sejam carregadas antes mesmo dele entrar na página de fato, só no ato dele passar pelo mouse em cima do nome dele e tentar acessar seus detalhes.
+
+Segue um exemplo:
+```jsx
+
+//component
+
+<Link onMouseEnter={() => handlePrefetchUser(userId)}>
+</Link>
+
+//Nessa function que acontece o preFetch dos dados com uma chave composta por cada usuario com um cache de 10 minutos
+async function handlePrefetchUser(userId: number) {
+        await queryClient.prefetchQuery(['user', userId], async () => {
+
+            const response = await api.get(`users/${userId}`);
+
+            return response.data
+        }, {
+            staleTime: 1000 * 60 * 10 //10 minutos
+        })
+}
+
+```
