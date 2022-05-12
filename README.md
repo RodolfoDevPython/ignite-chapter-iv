@@ -59,3 +59,21 @@ As Querys tem os seguintes status
 - Inactive
 
 Obs: Usaremos o MirageJs para fazer uma api fake
+
+
+#### Usando useQuery
+Para criamos um cache de informações usamos o useQuery. Onde Precisamos passar alguns valores como parametro nessa função.
+
+useQuery(chave, function(), options);
+
+chave -> Pode ser uma chave única exemplo 'user' ou uma chave composta chamada 'users'
+
+function -> Seria uma callback function
+
+options -> Existem varias configurações uma delas é staleTime da consulta.
+
+No exemplo abaixo foi usado uma chave composta para guardar uma paginação de usuarios. Isso deve ser feito pq não podemos guarda uma páginação em uma única chave
+
+return useQuery(['users', page], () => getUsers(page), {
+    staleTime: 1000 * 5 //5 segundos
+});
