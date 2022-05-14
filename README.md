@@ -105,3 +105,38 @@ async function handlePrefetchUser(userId: number) {
 }
 
 ```
+
+#### Usando conceito de Mutation
+
+Mutation são hooks usados para update, delete e insert dos dados. Podemos também usar ele para validação de request.
+
+A ideia principal em usar o useMutation seria revalidar ou atualizar os dados em caches.
+
+```jsx
+
+const createUser = useMutation(async (user) => {
+    //chamada simples para uma api para criação de usuario
+    const response = await api.post("users", {
+        user: {
+            ...user,
+            created_at: new Date()
+        }
+    })
+    
+    return response.data.user;
+
+}, {
+    //Usamos o onSucess para executar uma tarefa somente quando a inserção for bem sucedida.
+    onSuccess: () => {
+        //Serve para revalidar os campos para atualizar o cache de users
+        queryClient.invalidateQueries("users")
+    }
+})
+
+const handleCreateUser = async (values) => {
+    //chamada ao hook useMutation
+    await createUser.mutateAsync(values);
+
+}
+
+```

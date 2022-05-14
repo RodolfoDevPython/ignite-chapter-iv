@@ -7,6 +7,10 @@ import { SideBar } from "../../components/SideBar";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useMutation } from "react-query";
+import { api } from "../../servers/api";
+import { queryClient } from "../../servers/queryClient";
+import { useRouter } from "next/router";
 
 type CreateUserFormData = {
     name: string;
@@ -25,14 +29,38 @@ const createUserFormSchema = yup.object().shape({
     ], 'As senhas precisam ser iguais')
 });
 
-export default function UserList() {
+export default function CreateUser() {
+
+    const router = useRouter();
 
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         resolver: yupResolver(createUserFormSchema)
     });
 
-    const handleCreateUser: SubmitHandler<CreateUserFormData> = (values) => {
+    const createUser = useMutation(async (user: CreateUserFormData) => {
+        const response = await api.post("users", {
+            user: {
+                ...user,
+                created_at: new Date()
+            }
+        })
+
+        return response.data.user;
+
+    }, {
+        onSuccess: () => {
+            //Serve para revalidar os campos para atualizar o cache de users
+            queryClient.invalidateQueries("users")
+        }
+    })
+
+    const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
         console.log(values)
+
+        await createUser.mutateAsync(values);
+
+        router.push("/users");
+
     }
 
     return (
